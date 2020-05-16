@@ -23,8 +23,45 @@ import "../style/index.scss";
     }
  */
 function render(variables = {}) {
-  console.log("These are the current variables: ", variables); //print on the console
-  // here we ask the logical questions to make decisions on how to build the html
+  let name = "Lucy";
+  if (variables.name !== null) name = variables.name;
+  else name = "Lucy";
+
+  let lastname = "Boilett";
+  if (variables.lastname !== null) lastname = variables.lastname;
+  else lastname = "Boilett";
+
+  let role = "Web Developer";
+  if (variables.role !== null) role = variables.role;
+  else role = "Web Developer";
+
+  let city = "Miami";
+  if (variables.city !== null) city = variables.city;
+  else city = "Miami";
+
+  let country = "USA";
+  if (variables.country !== null) country = variables.country;
+  else country = "USA";
+
+  let twitter = "";
+  if (variables.twitter !== null) twitter = variables.twitter;
+
+  let github = "";
+  if (variables.github !== null) github = variables.github;
+
+  let linkedin = "";
+  if (variables.linkedin !== null) linkedin = variables.linkedin;
+
+  let instagram = "";
+  if (variables.instagram !== null) instagram = variables.instagram;
+
+  let socialMediaPosition = "position-left";
+  if (variables.socialMediaPosition == "position-left") socialMediaPosition = "position-letf";
+  else if (variables.socialMediaPosition == "position-right") socialMediaPosition = "position-right";
+  else socialMediaPosition = "position-left";
+
+    
+
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
@@ -33,14 +70,14 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+          <h1>${name} ${lastname}</h1>
+          <h2>${role}</h2>
+          <h3>${city},${country}</h3>
+          <ul class=${socialMediaPosition}>
+            <li><a href="https://twitter.com/${twitter}"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${github}"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${linkedin}"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${instagram}"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
